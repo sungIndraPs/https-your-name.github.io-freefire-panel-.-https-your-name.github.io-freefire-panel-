@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Free Fire Script Panel</title>
+  <style>
+    body {
+      background: #111;
+      font-family: 'Consolas', monospace;
+      color: #00ffcc;
+      padding: 20px;
+    }
+
+    .panel {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px #00ffcc80;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .group {
+      margin: 15px 0;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="range"], select, button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      background: #222;
+      color: #00ffcc;
+    }
+
+    input[type="checkbox"] {
+      transform: scale(1.5);
+      margin-right: 10px;
+    }
+
+    .log {
+      background: #000;
+      border: 1px solid #00ffcc33;
+      padding: 15px;
+      margin-top: 20px;
+      height: 180px;
+      overflow-y: auto;
+      font-size: 14px;
+      white-space: pre-line;
+      border-radius: 10px;
+    }
+
+    .apply-btn {
+      background: #00ffcc;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="panel">
+    <h2>🔥 Free Fire MOD PANEL 🔫</h2>
+
+    <div class="group">
+      <label><input type="checkbox" id="aimlock"> Enable Aimlock</label>
+      <label><input type="checkbox" id="dragHead"> Auto Drag Headshot</label>
+      <label><input type="checkbox" id="antiBan"> Activate Anti-Ban System</label>
+      <label><input type="checkbox" id="magicBullet"> Enable Magic Bullet</label>
+      <label><input type="checkbox" id="noRecoil"> No Recoil</label>
+    </div>
+
+    <div class="group">
+      <label>Sensitivity Level</label>
+      <input type="range" id="sensitivity" min="10" max="100" value="50">
+    </div>
+
+    <div class="group">
+      <label>Crosshair Color</label>
+      <select id="crosshair">
+        <option>Red</option>
+        <option>Green</option>
+        <option>Blue</option>
+        <option>Yellow</option>
+      </select>
+    </div>
+
+    <button class="apply-btn" onclick="applyConfig()">✅ Apply Script</button>
+
+    <div class="log" id="logBox">// Config output appears here</div>
+  </div>
+
+  <script>
+    function applyConfig() {
+      const log = [];
+
+      const aimlock = document.getElementById('aimlock').checked;
+      const drag = document.getElementById('dragHead').checked;
+      const antiBan = document.getElementById('antiBan').checked;
+      const magicBullet = document.getElementById('magicBullet').checked;
+      const noRecoil = document.getElementById('noRecoil').checked;
+      const sensitivity = document.getElementById('sensitivity').value;
+      const crosshair = document.getElementById('crosshair').value;
+
+      log.push(">> Script Applied Successfully");
+      log.push("• Aimlock: " + (aimlock ? "ENABLED" : "OFF"));
+      log.push("• Auto Drag Headshot: " + (drag ? "ENABLED" : "OFF"));
+      log.push("• Anti-Ban: " + (antiBan ? "ON" : "OFF"));
+      log.push("• Magic Bullet: " + (magicBullet ? "ACTIVE" : "OFF"));
+      log.push("• No Recoil: " + (noRecoil ? "YES" : "NO"));
+      log.push("• Sensitivity: " + sensitivity + "%");
+      log.push("• Crosshair Color: " + crosshair.toUpperCase());
+
+      document.getElementById('logBox').innerText = log.join("\n");
+    }
+  </script>
+
+</body>
+</html>
